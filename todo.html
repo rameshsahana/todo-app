@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>To Do List</title>
+</head>
+
+<body>
+	<p> To Do List </p>
+	<header>
+		Add ToDo item: <input type="text" placeholder="new ToDo item" id="new-item"></input>
+		<button type="button" id="add-button">Add</button>
+	
+	</header>
+	
+	<ul id="add-to-list" ></ul>
+
+	
+	<script>
+		var myList = document.getElementById("add-to-list");
+		var newItem = document.getElementById("new-item");
+		
+		window.onload=function(){
+			console.log("Body loaded");
+		}
+		document.getElementById("add-button").onclick = function() {// add function
+			console.log("Add button clicked");
+		
+			var listItem = document.createElement("li");
+			
+			var itemListValue = document.createTextNode(newItem.value);
+			
+			var removeItemButton = document.createElement("button")
+			removeItemButton.setAttribute("type", "button"); 
+			removeItemButton.setAttribute("id", "remove-button");
+			var removeButtonName = document.createTextNode(" Remove");// creating remove button
+			removeItemButton.appendChild(removeButtonName);
+			
+			removeItemButton.onclick = function () {
+				console.log("Remove button clicked");
+				
+				
+				removeItemButton.parentNode.parentNode.removeChild(removeItemButton.parentNode); //https://www.codecademy.com/en/forum_questions/4fc4e20c48eae700030456bb
+			
+			}
+			
+			listItem.appendChild(itemListValue);
+			
+			listItem.appendChild(removeItemButton);
+			
+			myList.appendChild(listItem); 			// https://stackoverflow.com/questions/12490439/adding-new-list-elements-to-an-unordered-list-with-javascript
+			
+		}
+			
+		
+	
+	
+	</script>
+	
+	
+	
+</body>
+
+</html>	
